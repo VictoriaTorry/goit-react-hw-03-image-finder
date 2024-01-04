@@ -6,12 +6,6 @@ export const Searchbar = ({ onSubmit }) => {
     e.preventDefault();
     const {value} = e.target.elements.searchQuery
     onSubmit(value)
-    // this.setState({
-    //   searchQuery: e.target.elements.searchQuery.value,
-    //   page: 1,
-    //   images: [],
-    //   totalHits: null,
-    // });
     e.target.reset();
   };
   return (
