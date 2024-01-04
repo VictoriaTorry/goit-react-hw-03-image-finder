@@ -51,15 +51,13 @@ export class App extends Component {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
 
-  onSubmit = e => {
-    e.preventDefault();
+  onSubmit = value => {
     this.setState({
-      searchQuery: e.target.elements.searchQuery.value,
+      searchQuery: value,
       page: 1,
       images: [],
       totalHits: null,
     });
-    e.target.reset();
   };
 
   render() {
@@ -69,7 +67,7 @@ export class App extends Component {
     return (
       <div className={css.container}>
         <Searchbar onSubmit={this.onSubmit} />
-        <ImageGallery pictures={images} />
+        {!!images.length && <ImageGallery pictures={images} />}
         {!isLoad && isEndOfCollection ? (
           <Button onChange={this.changePage}>Load more</Button>
         ) : null}

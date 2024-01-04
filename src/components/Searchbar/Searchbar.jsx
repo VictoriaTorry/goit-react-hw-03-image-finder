@@ -1,9 +1,22 @@
 import css from './Searchbar.module.css';
 
 export const Searchbar = ({ onSubmit }) => {
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const {value} = e.target.elements.searchQuery
+    onSubmit(value)
+    // this.setState({
+    //   searchQuery: e.target.elements.searchQuery.value,
+    //   page: 1,
+    //   images: [],
+    //   totalHits: null,
+    // });
+    e.target.reset();
+  };
   return (
     <header className={css.searchbar}>
-      <form className={css.form} onSubmit={onSubmit}>
+      <form className={css.form} onSubmit={handleSubmit}>
         <input
           className={css.searchFormInput}
           type="text"
