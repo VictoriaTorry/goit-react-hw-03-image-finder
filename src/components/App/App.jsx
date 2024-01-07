@@ -67,6 +67,7 @@ export class App extends Component {
     return (
       <div className={css.container}>
         <Searchbar onSubmit={this.onSubmit} />
+        {isLoad && <Loader />}
         {!!images.length && <ImageGallery pictures={images} />}
         {!isLoad && isEndOfCollection ? (
           <Button onChange={this.changePage}>Load more</Button>
